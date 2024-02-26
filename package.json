@@ -1,0 +1,21 @@
+{
+  "name": "a5-architecture-logicielle",
+  "version": "1.0.0",
+  "description": "TTRPG tool for creating a campaign about spies using current world events.",
+  "main": "index.js",
+  "scripts": {
+    "db:generate": "npm run db:generate --workspace=packages/database",
+    "db:push": "npm run db:push --workspace=packages/database"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MBoutray/a5-architecture-logicielle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MBoutray/a5-architecture-logicielle/issues"
+  },
+  "homepage": "https://github.com/MBoutray/a5-architecture-logicielle#readme",
+  "workspaces": ["packages/website", "packages/database"]
+}
