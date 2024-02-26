@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mongo:7.0.5
+    container_name: archi-logi-db
+    hostname: ${DB_HOST}
+    restart: always
+    volumes:
+      - db_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+
+volumes:
+  db_data:
