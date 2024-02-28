@@ -31,7 +31,7 @@ model PlayerCharacter {
   image      String?
   background String?
   profession String?
-  clearance  Clearance
+  clearance  Clearance @default(ROOKIE)
 
   missions   Mission[] @relation(fields: [missionIds], references: [id])
   missionIds String[]  @db.ObjectId
@@ -52,7 +52,7 @@ model NonPlayerCharacter {
   image      String?
   background String?
   profession String?
-  clearance  Clearance
+  clearance  Clearance @default(ROOKIE)
 
   missions   Mission[] @relation(fields: [missionIds], references: [id])
   missionIds String[]  @db.ObjectId
@@ -107,6 +107,8 @@ model CharacterStats {
   physicalAdjectives PhysicalAdjective[]
   mentalAdjectives   MentalAdjective[]
   socialAdjectives   SocialAdjective[]
+
+  // Relationships
   PlayerCharacter    PlayerCharacter[]
   NonPlayerCharacter NonPlayerCharacter[]
 }
@@ -117,6 +119,8 @@ model CharacterSkills {
   drivingSkills      DrivingSkills[]
   fightingSkills     FightingSkills[]
   languageSkills     LanguageSkills[]
+
+  // Relationships
   PlayerCharacter    PlayerCharacter[]
   NonPlayerCharacter NonPlayerCharacter[]
 }
