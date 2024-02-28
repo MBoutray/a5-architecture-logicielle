@@ -1,19 +1,7 @@
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 export default function Mission(props) {
-
-    const navigate = useNavigate();
-
-    const navigateToContacts = () => {
-        // 👇️ navigate to /contacts
-        navigate('/contacts');
-    };
-
-    const navigateHome = () => {
-        // 👇️ navigate to /
-        navigate('/');
-    };
 
     return (
         <div className="border-red px-4 bg-gray-200 w-80 rounded-lg">
@@ -23,7 +11,9 @@ export default function Mission(props) {
                     <h2 className="text-xl font-bold text-center mb-4">{props.title}</h2>
                     <p className="m-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum doloribus suscipit pariatur quibusdam?</p>
                     <div className="flex justify-center">
-                        <button type="button" className="py-2.5 px-8 me-2 mb-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-2xl border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">See details</button>
+                        <Link to={props.link}>
+                            <button type="button" className="py-2.5 px-8 me-2 mb-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-2xl border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">See details</button>
+                        </Link>
                     </div>
                 </div>
             </div>

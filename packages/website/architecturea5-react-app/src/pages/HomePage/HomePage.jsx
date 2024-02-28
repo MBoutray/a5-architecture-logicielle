@@ -12,9 +12,9 @@ function Home() {
             <h1 className="text-4xl font-bold text-center text-white my-10">Urgent missions</h1>
         </div>
         <div className='flex justify-around'>
-          <Mission url={mafia} title="Stop the mafia"/>
-          <Mission url={killer} title="Kill the target"/>
-          <Mission url={tsunami} title="Tsunami"/>
+          <Mission url={mafia} title="Stop the mafia" link="/mafia"/>
+          <Mission url={killer} title="Kill the target" link="/kill"/>
+          <Mission url={tsunami} title="Tsunami" link="/tsunami"/>
         </div>
         
     </>
