@@ -14,6 +14,180 @@ datasource db {
 }
 
 model User {
-  id    String     @id @default(auto()) @map("_id") @db.ObjectId
-  email String  //@unique
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  username String @unique
+  email    String @unique
+  password String
+
+  ownedCharacters          PlayerCharacter[]
+  ownedNonPlayerCharacters NonPlayerCharacter[]
+  ownedMissions            Mission[]
+  ownedPlaces              Place[]
+}
+
+model PlayerCharacter {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  image      String?
+  background String?
+  profession String?
+  clearance  Clearance
+
+  missions   Mission[] @relation(fields: [missionIds], references: [id])
+  missionIds String[]  @db.ObjectId
+
+  owner  User   @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
+
+  statistics       CharacterStats @relation(fields: [characterStatsId], references: [id])
+  characterStatsId String         @db.ObjectId
+
+  skills            CharacterSkills @relation(fields: [characterSkillsId], references: [id])
+  characterSkillsId String          @db.ObjectId
+}
+
+model NonPlayerCharacter {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  image      String?
+  background String?
+  profession String?
+  clearance  Clearance
+
+  missions   Mission[] @relation(fields: [missionIds], references: [id])
+  missionIds String[]  @db.ObjectId
+
+  owner  User   @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
+
+  statistics       CharacterStats @relation(fields: [characterStatsId], references: [id])
+  characterStatsId String         @db.ObjectId
+
+  skills            CharacterSkills @relation(fields: [characterSkillsId], references: [id])
+  characterSkillsId String          @db.ObjectId
+}
+
+model Mission {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  scenario String?
+
+  places   Place[]  @relation(fields: [placeIds], references: [id])
+  placeIds String[] @db.ObjectId
+
+  playerCharacters   PlayerCharacter[] @relation(fields: [playerCharacterIds], references: [id])
+  playerCharacterIds String[]          @db.ObjectId
+
+  nonPlayerCharacters   NonPlayerCharacter[] @relation(fields: [nonPlayerCharacterIds], references: [id])
+  nonPlayerCharacterIds String[]             @db.ObjectId
+
+  owner  User   @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
+}
+
+model Place {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String?
+  image       String?
+
+  missions   Mission[] @relation(fields: [missionIds], references: [id])
+  missionIds String[]  @db.ObjectId
+
+  owner  User   @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
+}
+
+model CharacterStats {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  physical Int
+  mental   Int
+  social   Int
+
+  physicalAdjectives PhysicalAdjective[]
+  mentalAdjectives   MentalAdjective[]
+  socialAdjectives   SocialAdjective[]
+  PlayerCharacter    PlayerCharacter[]
+  NonPlayerCharacter NonPlayerCharacter[]
+}
+
+model CharacterSkills {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  drivingSkills      DrivingSkills[]
+  fightingSkills     FightingSkills[]
+  languageSkills     LanguageSkills[]
+  PlayerCharacter    PlayerCharacter[]
+  NonPlayerCharacter NonPlayerCharacter[]
+}
+
+enum PhysicalAdjective {
+  MUSCULAR
+  TALL
+  FAST
+  TOUGH
+  FRAIL
+  SHORT
+  SLOW
+  WEAK
+}
+
+enum MentalAdjective {
+  CALM
+  INTUITIVE
+  METHODICAL
+  CLEVER
+  OBSERVATIVE
+  KNOWLEDGEABLE
+}
+
+enum SocialAdjective {
+  INTIMIDATING
+  PERSUASIVE
+  CONFIDENT
+  PATIENT
+  EMPATHETIC
+  RESPECTFUL
+  SENSITIVE
+}
+
+enum Clearance {
+  ROOKIE
+  JUNIOR
+  SENIOR
+  MASTER
+}
+
+enum DrivingSkills {
+  CAR
+  HELICOPTER
+  BOAT
+  MOTORCYCLE
+  PLANE
+  SUBMARINE
+}
+
+enum FightingSkills {
+  FISTS
+  SNIPER
+  PISTOL
+  SWORD
+  RIFLE
+  ROCKET_LAUNCHER
+}
+
+enum LanguageSkills {
+  FRENCH
+  ENGLISH
+  GERMAN
+  SPANISH
+  PORTUGUESE
+  ITALIAN
+  ARABIC
+  CHINESE
+  JAPANESE
+  HINDI
+  RUSSIAN
+  BENGALI
+  PUNJABI
 }
