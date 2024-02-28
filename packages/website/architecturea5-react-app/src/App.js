@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import Navbar from './components/Navbar/Navbar';
+import Mission from './components/Mission/Mission';
+import mafia from "./assets/mafia.jpg"
+import killer from "./assets/killer.jpg"
+import tsunami from "./assets/tsunami.jpg"
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <Navbar />
+        <div>
+            <h1 className="text-4xl font-bold text-center text-white my-10">Urgent missions</h1>
+        </div>
+        <div className='flex justify-around'>
+          <Mission url={mafia} title="Stop the mafia"/>
+          <Mission url={killer} title="Kill the target"/>
+          <Mission url={tsunami} title="Tsunami"/>
+        </div>
+        
+    </>
+
   );
 }
 
