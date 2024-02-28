@@ -1,4 +1,3 @@
-import Navbar from '../../components/Navbar/Navbar';
 import killer from "../../assets/killer.jpg"
 import React, { useState } from "react";
 
@@ -17,7 +16,6 @@ function Kill() {
 
   return (
     <>
-      <Navbar />
         <div>
             <h1 className="text-4xl font-bold text-center text-white my-10">Kill the target</h1>
         </div>

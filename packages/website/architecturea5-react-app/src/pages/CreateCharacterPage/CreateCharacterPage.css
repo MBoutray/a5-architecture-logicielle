@@ -1,0 +1,61 @@
+
+.div-create-character-container {
+    color: white;
+    min-height: 50vh;
+    padding-right: 20vw;
+    padding-left: 20vw;
+    padding-top: 20px;
+}
+.create-character-container {
+    color: white;
+    min-height: 100vh;
+}
+
+input,
+textarea,
+select {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    width: calc(100% - 20px);
+    margin-bottom: 2vh;
+}
+.label-radio {
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: white !important;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: -1px -1px 20px white;
+    transition: background-color 0.3s;
+    margin-left: 2vw;
+    margin-bottom: 2vh;
+}
+
+button:hover {
+    background-color: black !important;
+    color: white;
+}
+
+.radio-container,
+.checkbox-container {
+    padding: 10px;
+    background-color: #222;
+    color: black;
+    display: inline-block;
+    margin-right: 10px;
+}
+button[type="submit"] {
+    margin-left: 40vw;
+  }
+  

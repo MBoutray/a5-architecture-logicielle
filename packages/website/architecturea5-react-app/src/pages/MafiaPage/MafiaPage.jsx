@@ -1,4 +1,3 @@
-import Navbar from '../../components/Navbar/Navbar';
 import mafia from "../../assets/mafia.jpg"
 import React, { useState } from "react";
 
@@ -17,7 +16,6 @@ function Mafia() {
 
   return (
     <>
-      <Navbar />
         <div>
             <h1 className="text-4xl font-bold text-center text-white my-10">Stop the mafia</h1>
         </div>
