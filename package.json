@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "db:generate": "npm run db:generate --workspace=packages/database",
-    "db:push": "npm run db:push --workspace=packages/database"
+    "db:push": "npm run db:push --workspace=packages/database",
+    "db:seed": "npm run db:seed --workspace=packages/database",
+    "web:test": "npm run web:test --workspace=packages/website"
   },
   "repository": {
     "type": "git",
@@ -17,5 +19,5 @@
     "url": "https://github.com/MBoutray/a5-architecture-logicielle/issues"
   },
   "homepage": "https://github.com/MBoutray/a5-architecture-logicielle#readme",
-  "workspaces": ["packages/website", "packages/database"]
+  "workspaces": ["packages/*"]
 }
